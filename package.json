@@ -5,6 +5,9 @@
   "description": "General purpose web game engine",
   "main": "./build/index",
   "types": "./build/index.d.ts",
+  "files": [
+    "./build/**/*"
+  ],
   "exports": {
     ".": "./build/index.js",
     "./component": "./build/component/component.js"
