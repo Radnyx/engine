@@ -1,6 +1,6 @@
 {
   "name": "@radnyx/engine",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "type": "module",
   "description": "General purpose web game engine",
   "main": "./build/index",
