@@ -1,12 +1,11 @@
-import PIXI from "pixi.js";
+import * as PIXI from "pixi.js";
 import Scene from "./Scene";
 
 export default class Game {
-    private scene: Scene | null;
+    private scene: Scene | undefined;
     public readonly app: PIXI.Application;
 
     constructor(width: number, height: number) {
-        this.scene = null;
         this.app = new PIXI.Application({ width, height });
     }
 
@@ -14,5 +13,11 @@ export default class Game {
         this.app.ticker.add(delta => {
             this.scene?.update(delta);
         });
+    }
+
+    loadScene(scene: Scene) {
+        this.scene?.onDestroy(this);
+        this.scene = scene;
+        scene.onLoad(this);
     }
 }
