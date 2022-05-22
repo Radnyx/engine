@@ -1,6 +1,6 @@
 import { AbstractEntitySystem } from "@trixt0r/ecs";
 import { TransformComponent, SpriteComponent, StageComponent } from "component/Components";
-import { GameObject } from "GameObject";
+import GameObject from "GameObject";
 
 export default class SpriteSystem extends AbstractEntitySystem<GameObject> {
     constructor() {

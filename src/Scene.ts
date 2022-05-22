@@ -1,17 +1,25 @@
 import ECS from "@trixt0r/ecs";
 import Game from "Game";
+import { Container } from "pixi.js";
 
 export default abstract class Scene {
-    private readonly engine: ECS.Engine;
+    protected readonly engine: ECS.Engine;
+    protected readonly stage: Container;
 
     constructor() {
         this.engine = new ECS.Engine;
+        this.stage = new Container;
     }
 
     update(delta: number) {
         this.engine.run(delta);
     }
 
-    abstract onLoad(game: Game): void;
-    abstract onDestroy(game: Game): void;
+    onLoad(game: Game) {
+        game.app.stage.addChild(this.stage);
+    }
+
+    onDestroy(game: Game) {
+        game.app.stage.removeChild(this.stage);
+    }
 }

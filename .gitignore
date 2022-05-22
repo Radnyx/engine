@@ -1,2 +1,5 @@
-node_modules
+node_modules/
+!demo/build/index.html
 build/
+
+*.tgz
