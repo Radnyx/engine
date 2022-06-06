@@ -1,5 +1,6 @@
 import { Component } from "@trixt0r/ecs";
 import { Container, Sprite } from "pixi.js";
+import { Body } from "matter-js";
 
 class TransformComponent implements Component {
     constructor(public x: number = 0, public y: number = 0) {}
@@ -13,4 +14,8 @@ class SpriteComponent implements Component {
     constructor(public sprite: Sprite) {}
 }
 
-export { TransformComponent, StageComponent, SpriteComponent };
+class PhysicsComponent implements Component {
+    constructor(public world: Matter.World, public body: Body) {}
+}
+
+export { TransformComponent, StageComponent, SpriteComponent, PhysicsComponent };

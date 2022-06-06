@@ -1,10 +1,13 @@
 {
   "name": "demo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "scripts": {
-    "dev": "esbuild ./src/index.ts --bundle --outfile=build/main.js --servedir=build"
+    "dev": "cd ../ && npm run build && cd demo && esbuild ./src/index.ts --bundle --outfile=build/main.js --servedir=build"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.14.39"
+  }
 }

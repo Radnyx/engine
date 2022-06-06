@@ -9,7 +9,7 @@ export default class Game {
         this.app = new PIXI.Application({ width, height });
     }
 
-    run() {
+    start() {
         this.app.ticker.add(delta => {
             this.scene?.update(delta);
         });

@@ -1,18 +1,25 @@
-import ECS from "@trixt0r/ecs";
+import * as ECS from "@trixt0r/ecs";
+import * as Matter from "matter-js";
 import Game from "Game";
 import { Container } from "pixi.js";
+import { EventBus } from "ts-bus";
 
 export default abstract class Scene {
-    protected readonly engine: ECS.Engine;
-    protected readonly stage: Container;
+    protected readonly ecs: ECS.Engine;
+    public readonly physics: Matter.Engine;
+    public readonly stage: Container;
+    public readonly eventBus: EventBus;
 
     constructor() {
-        this.engine = new ECS.Engine;
-        this.stage = new Container;
+        this.ecs = new ECS.Engine();
+        this.physics = Matter.Engine.create();
+        this.stage = new Container();
+        this.eventBus = new EventBus();
     }
 
     update(delta: number) {
-        this.engine.run(delta);
+        Matter.Engine.update(this.physics, delta);
+        this.ecs.run(delta);
     }
 
     onLoad(game: Game) {
