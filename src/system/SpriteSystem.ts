@@ -29,9 +29,10 @@ export default class SpriteSystem extends AbstractEntitySystem<GameObject> {
     }
 
     override processEntity(gameObject: GameObject) {
-        const { x, y } = gameObject.components.get(TransformComponent);
+        const { x, y, angle } = gameObject.components.get(TransformComponent);
         const { sprite } = gameObject.components.get(SpriteComponent);
         sprite.x = x;
         sprite.y = y;
+        sprite.rotation = angle;
     }
 }

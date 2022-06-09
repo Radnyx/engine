@@ -3,7 +3,7 @@ import { Container, Sprite } from "pixi.js";
 import { Body } from "matter-js";
 
 class TransformComponent implements Component {
-    constructor(public x: number = 0, public y: number = 0) {}
+    constructor(public x: number = 0, public y: number = 0, public angle: number = 0) {}
 }
 
 class StageComponent implements Component {

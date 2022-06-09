@@ -24,5 +24,6 @@ export default class PhysicsSystem extends AbstractEntitySystem<GameObject> {
         const { body } = gameObject.components.get(PhysicsComponent);
         transform.x = body.position.x;
         transform.y = body.position.y;
+        transform.angle = body.angle;
     }
 }

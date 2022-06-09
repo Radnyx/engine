@@ -5,16 +5,16 @@ import { Container } from "pixi.js";
 import { EventBus } from "ts-bus";
 
 export default abstract class Scene {
-    protected readonly ecs: ECS.Engine;
+    public readonly ecs: ECS.Engine;
     public readonly physics: Matter.Engine;
     public readonly stage: Container;
-    public readonly eventBus: EventBus;
+    public readonly bus: EventBus;
 
     constructor() {
         this.ecs = new ECS.Engine();
         this.physics = Matter.Engine.create();
         this.stage = new Container();
-        this.eventBus = new EventBus();
+        this.bus = new EventBus();
     }
 
     update(delta: number) {
