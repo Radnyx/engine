@@ -12,7 +12,7 @@ export default class PlayerSystem extends AbstractEntitySystem<GameObject> {
         const data = object.components.get(PlayerComponent);
         const walkTo = object.components.get(WalkToComponent);
         this.scene.bus.subscribe(clickStageMessage, ({ payload: { x, y } }) => {
-            if (!data.inDialogue) {
+            if (data.controllable) {
                 walkTo.walkTo(x, y, 10);
             }
         });

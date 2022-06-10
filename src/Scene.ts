@@ -14,6 +14,7 @@ export default abstract class Scene {
         this.ecs = new ECS.Engine();
         this.physics = Matter.Engine.create();
         this.stage = new Container();
+        this.stage.sortableChildren = true;
         this.bus = new EventBus();
     }
 

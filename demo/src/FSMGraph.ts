@@ -1,3 +1,4 @@
+import { FSMComponent } from "./component/Components";
 
 interface Edge {
     id: number;
@@ -8,7 +9,7 @@ interface Node {
     id: number;
     // first called when entering node
     // return value is called when exiting
-    enter: () => ((() => void) | void);
+    enter: (fsm: FSMComponent) => ((() => void) | void);
     edges?: Edge[];
 }
 

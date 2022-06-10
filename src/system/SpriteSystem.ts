@@ -10,13 +10,14 @@ export default class SpriteSystem extends AbstractEntitySystem<GameObject> {
 
     override onAddedEntities(...gameObjects: GameObject[]): void {
         for (const gameObject of gameObjects) {
-            const { x, y } = gameObject.components.get(TransformComponent);
+            const transform = gameObject.components.get(TransformComponent);
+            const worldPosition = transform.getWorldPosition();
             const { stage } = gameObject.components.get(StageComponent);
             const { sprite } = gameObject.components.get(SpriteComponent);
             stage.addChild(sprite);
-            sprite.anchor.set(0.5);
-            sprite.x = x;
-            sprite.y = y;
+            sprite.x = worldPosition.x;
+            sprite.y = worldPosition.y;
+            sprite.rotation = transform.angle;
         }
     }
 
@@ -29,10 +30,11 @@ export default class SpriteSystem extends AbstractEntitySystem<GameObject> {
     }
 
     override processEntity(gameObject: GameObject) {
-        const { x, y, angle } = gameObject.components.get(TransformComponent);
+        const transform = gameObject.components.get(TransformComponent);
+        const worldPosition = transform.getWorldPosition();
         const { sprite } = gameObject.components.get(SpriteComponent);
-        sprite.x = x;
-        sprite.y = y;
-        sprite.rotation = angle;
+        sprite.x = worldPosition.x;
+        sprite.y = worldPosition.y;
+        sprite.rotation = transform.angle;
     }
 }

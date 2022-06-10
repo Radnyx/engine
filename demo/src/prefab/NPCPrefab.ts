@@ -1,6 +1,6 @@
 import { GameObject, Scene, SpriteComponent } from "../../../src";
 import { Prefab } from "../../../src/GameObject";
-import { FSMComponent, WalkToComponent } from "../component/Components";
+import { FSMComponent, PlayerComponent, WalkToComponent } from "../component/Components";
 import FSMGraph from "../FSMGraph";
 
 export default function NPCPrefab(scene: Scene, graph?: FSMGraph): Prefab {
@@ -9,6 +9,9 @@ export default function NPCPrefab(scene: Scene, graph?: FSMGraph): Prefab {
         obj.components.add(fsm);
         // Walk player to character
         obj.components.get(SpriteComponent).sprite.on("click", e => {
+            if (!scene.ecs.entities.get("player").components.get(PlayerComponent).controllable) {
+                return;
+            }
             e.stopPropagation();
             scene.ecs.entities.get("player").components.get(WalkToComponent).walkTo(
                 e.data.global.x, 

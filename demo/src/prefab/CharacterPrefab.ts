@@ -11,6 +11,7 @@ export default function CharacterPrefab(
 ): Prefab {
     return (obj: GameObject) => {
         const spr = Sprite.from(Texture.WHITE);
+        spr.anchor.set(0.5);
         spr.width = width;
         spr.height = height;
         spr.interactive = true;

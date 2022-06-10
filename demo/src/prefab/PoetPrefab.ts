@@ -1,40 +1,27 @@
 import { Scene } from "../../../src";
 import GameObject, { Prefab } from "../../../src/GameObject";
-import { FSMComponent, PlayerComponent } from "../component/Components";
 import FSMGraph from "../FSMGraph";
-import { clickStageMessage } from "../Messages";
 import NPCPrefab from "./NPCPrefab";
+import * as text from "../../assets/text.json";
+import { Dialogues, Select } from "../States";
 
 enum NODES {
-    DIALOGUE_FIRST = 0,
-    SELECT_OPINION
+    DIALOGUE_INTRO = 0,
+    SELECT_OPINION = 10,
+    INSTRUCT,
+    RECEIVE_ROSE = 20
 }
 
 export default function PoetPrefab(scene: Scene): Prefab {
     return (poet: GameObject) => {
         const interactWithPoet = new FSMGraph(
+            ...Dialogues(NODES.DIALOGUE_INTRO, scene, poet, text["poet"]["intro"], NODES.SELECT_OPINION),
+            Select(NODES.SELECT_OPINION, scene, text["poet"]["opinion"]),
+            ...Dialogues(NODES.INSTRUCT, scene, poet, text["poet"]["instruct"], NODES.RECEIVE_ROSE),
             {
-                id: NODES.DIALOGUE_FIRST, 
-                enter: () => {
-                    scene.ecs.entities.get("player").components.get(PlayerComponent).inDialogue = true;
-                    /// TODO:
-                    console.log("ADD TEXT CHILD OBJECT");
-                    const unsubscribe = scene.bus.subscribe(clickStageMessage, () => {
-                        poet.components.get(FSMComponent).execute(NODES.SELECT_OPINION);
-                    });
-                    // exit
-                    return () => {
-                        /// TODO:
-                        console.log("REMOVE TEXT CHILD OBJECT");
-                        unsubscribe();
-                    };
-                }
-            },
-            {
-                id: NODES.SELECT_OPINION,
-                enter: () => {
-                    /// TODO:
-                    console.log("SELECT OPINION OBJECTS");
+                id: NODES.RECEIVE_ROSE,
+                enter: fsm => {
+                    
                 }
             }
         );

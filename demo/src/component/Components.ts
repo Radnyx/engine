@@ -18,7 +18,7 @@ class WalkToComponent implements Component {
 }
 
 class PlayerComponent implements Component {
-    constructor(public inDialogue: boolean = false) {}
+    constructor(public controllable: boolean = true) {}
 }
 
 class FSMComponent implements Component {
@@ -38,7 +38,7 @@ class FSMComponent implements Component {
         }
         this._graph = graph;
         this._node = node;
-        this._exit = graph.get(node).enter();
+        this._exit = graph.get(node).enter(this);
     }
 
     execute(node: number) {
