@@ -64,4 +64,14 @@ function Select(id: number, scene: Scene, options: string[], nextNodes?: number[
     }
 }
 
-export { Dialogue, Dialogues, Select };
+function Do(id: number, fun: () => void, nextNode?: number): Node {
+    return {
+        id,
+        run: fsm => {
+            fun();
+            fsm.execute(nextNode || (id + 1))
+        }
+    };
+}
+
+export { Dialogue, Dialogues, Select, Do };

@@ -13,13 +13,9 @@ export default class FSMSystem extends AbstractEntitySystem<GameObject> {
         if (fsm.graph == null || fsm.node == FSMGraph.NULL_NODE) {
             return;
         }
-        const edges = fsm.graph.get(fsm.node).edges;
-        if (edges != null) {
-            for (const edge of edges) {
-                if (edge.condition()) {
-                    fsm.execute(edge.id);
-                }
-            }
+        const run = fsm.graph.get(fsm.node).run;
+        if (run != null) {
+            run(fsm);
         }
     }
 }

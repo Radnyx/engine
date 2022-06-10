@@ -14,6 +14,12 @@
             "Maybe I can ask a simpler favor:",
             "At 8 A.M. today an illustrious woman in a red dress will sashay into town.",
             "You must--excuse me--thou must deliver her this rose."
-        ]
+        ],
+        "given_rose": [
+            "This task seems too elevated for me.",
+            "You should deliver it yourself.",
+            "You memorized her daily routine?"
+        ],
+        "goodbye": "I await my lady’s word! Go on, for my gratitude!"
     }
 }

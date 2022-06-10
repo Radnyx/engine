@@ -9,8 +9,9 @@ interface Node {
     id: number;
     // first called when entering node
     // return value is called when exiting
-    enter: (fsm: FSMComponent) => ((() => void) | void);
-    edges?: Edge[];
+    enter?: (fsm: FSMComponent) => ((() => void) | void);
+    // executed each frame
+    run?: (fsm: FSMComponent) => void;
 }
 
 class FSMGraph {

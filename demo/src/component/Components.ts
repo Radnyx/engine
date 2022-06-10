@@ -1,5 +1,6 @@
 import { Component } from "@trixt0r/ecs";
 import FSMGraph from "../FSMGraph";
+import { Item, ITEM_NAMES } from "../Item";
 
 class WalkToComponent implements Component {
     constructor(
@@ -18,7 +19,19 @@ class WalkToComponent implements Component {
 }
 
 class PlayerComponent implements Component {
-    constructor(public controllable: boolean = true) {}
+    constructor(
+        public controllable: boolean = true, 
+        // TODO: move this to PlayerInventory object that persists between scenes?
+        // or, Game has overall state attached to it
+        private _currentItem: number = 0,
+        private _items: Item[] = [ Item.NOTHING ]
+    ) {}
+
+    giveItem(item: Item) {
+        console.log("received " + ITEM_NAMES[item]);
+        this._items.push(item);
+        this._currentItem = this._items.length - 1;
+    }
 }
 
 class FSMComponent implements Component {
@@ -38,7 +51,12 @@ class FSMComponent implements Component {
         }
         this._graph = graph;
         this._node = node;
-        this._exit = graph.get(node).enter(this);
+        if (node != FSMGraph.NULL_NODE) {
+            const { enter } = graph.get(node);
+            if (enter) {
+                this._exit = enter(this);
+            }
+        }
     }
 
     execute(node: number) {
