@@ -4,7 +4,9 @@ enum Item {
     ROSE,
     LETTER,
     NET,
-    ROCK
+    ROCK,
+    FISH,
+    CAT
 }
 
 const ITEM_NAMES = [
@@ -12,7 +14,9 @@ const ITEM_NAMES = [
     "Rose",
     "Letter",
     "Net",
-    "Rock"
+    "Rock",
+    "Fish",
+    "Cat"
 ];
 
 export { Item, ITEM_NAMES };

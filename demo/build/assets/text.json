@@ -9,6 +9,11 @@
             "It’s very... graphic.",
             "Aren’t worker bees female?"
         ],
+        "opinion_response": [
+            "As it should.",
+            "I'm only depicting what's to come.",
+            "Pardon? Do you fish or do you keep bees?"
+        ],
         "instruct": [
             "Well, thou don’t seem so inclined to literature.",
             "Maybe I can ask a simpler favor:",
@@ -19,6 +24,17 @@
             "This task seems too elevated for me.",
             "You should deliver it yourself.",
             "You memorized her daily routine?"
+        ],
+        "too_elevated": [
+            "Go easy on yourself--excuse me--thyself.",
+            "Fishermen can’t be entirely dull-witted."
+        ],
+        "deliver_it_yourself": [
+            "O, but one breath of an air of mystery and the rest is history.",
+            "I wrote that."
+        ],
+        "daily_routine": [
+            "As a fisherman knows the best seasons to catch fish. I too study my catch."
         ],
         "goodbye": "I await my lady’s word! Go on, for my gratitude!",
         "repeat_instruct": [
@@ -186,11 +202,21 @@
         "attack": [
             "Ye think I don’t have me wits about me?",
             "TODO"
+        ],
+        "give_cat": [
+            "Shiver me timbers!",
+            "What precious loot are ye!"
         ]
-
     },
     "cat": {
         "pspsps": "*pspsps*",
         "hungry": "*meows hungrily*"
+    },
+    "fish": {
+        "no_net": "We're some ripe supple fish ready to be caught!",
+        "net": [
+            "Are you gonna catch us with that net?",
+            "It's okay, we're asking!"
+        ]
     }
 }

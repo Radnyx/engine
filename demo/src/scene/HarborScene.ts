@@ -56,7 +56,6 @@ export default class HarborScene extends AdventureScene {
             FishPrefab(this)
         )(new GameObject());
 
-
         const harborBackground = new GameObject();
         harborBackground.components.add(new StageComponent(this.stage));
         harborBackground.components.add(new SpriteComponent(new Sprite(

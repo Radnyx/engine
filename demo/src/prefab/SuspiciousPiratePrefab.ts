@@ -22,7 +22,9 @@ enum NODES {
     SHOW_CAT = 70,
     CAT = 80,
     AFTER = 90,
-    ATTACK = 100
+    ATTACK = 100,
+    GIVE_CAT = 110,
+    ATTACK_DISTRACTED = 120
 }
 
 export default function SuspiciousPiratePrefab(scene: AdventureScene): Prefab {
@@ -33,8 +35,17 @@ export default function SuspiciousPiratePrefab(scene: AdventureScene): Prefab {
         const interact = new FSMGraph(
             Condition(NODES.CHOOSE_PATH, [
                 {
+                    when: () => pirateComponent.state.distracted && 
+                        scene.playerComponent.holding(Item.ROCK),
+                    node: NODES.ATTACK_DISTRACTED
+                },
+                {
                     when: () => scene.playerComponent.holding(Item.ROCK),
                     node: NODES.ATTACK
+                },
+                {
+                    when: () => scene.playerComponent.holding(Item.CAT),
+                    node: NODES.GIVE_CAT
                 },
                 {
                     when: () => scene.playerComponent.gameState.metPirate,
@@ -76,7 +87,15 @@ export default function SuspiciousPiratePrefab(scene: AdventureScene): Prefab {
             }, NODES.CAT),
             Dialogue(NODES.CAT, scene, pirate, t["cat"], NODES.END),
             Dialogue(NODES.AFTER, scene, pirate, t["after"], NODES.END),
-            Dialogue(NODES.ATTACK, scene, pirate, t["attack"], NODES.END)
+            Dialogue(NODES.ATTACK, scene, pirate, t["attack"], NODES.END),
+
+            Dialogue(NODES.GIVE_CAT, scene, pirate, t["give_cat"], NODES.END, () => {
+                pirateComponent.state.distracted = true;
+            }),
+
+            Do(NODES.ATTACK_DISTRACTED, () => {
+                console.log("you win");
+            }, NODES.END)
         );
         return NPCPrefab(scene, interact)(pirate);
     };

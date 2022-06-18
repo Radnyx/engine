@@ -83,11 +83,13 @@ class FSMComponent implements Component {
 
 interface SuspiciousPirateState {
     asked: [boolean, boolean, boolean];
+    distracted: boolean;
 }
 
 class SuspiciousPirateComponent {
     constructor(public state: SuspiciousPirateState = {
-        asked: [false, false, false]
+        asked: [false, false, false],
+        distracted: false
     }) {}
 }
 
