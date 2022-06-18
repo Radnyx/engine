@@ -10,6 +10,7 @@ import { PlayerComponent } from "../component/Components";
 import { compose } from "../../../src/GameObject";
 import SuspiciousPiratePrefab from "../prefab/SuspiciousPiratePrefab";
 import { Sprite } from "pixi.js";
+import FishPrefab from "../prefab/FishPrefab";
 
 export default class HarborScene extends AdventureScene {
 
@@ -50,12 +51,18 @@ export default class HarborScene extends AdventureScene {
             SuspiciousPiratePrefab(this)
         )(new GameObject());
 
+        const fish = compose(
+            CharacterPrefab(this, 390, 526, 50, 50, 0x0000FF),
+            FishPrefab(this)
+        )(new GameObject());
+
+
         const harborBackground = new GameObject();
         harborBackground.components.add(new StageComponent(this.stage));
         harborBackground.components.add(new SpriteComponent(new Sprite(
             this.loader.resources["assets/harbor.png"].texture
         )));
-        harborBackground.components.add(new TransformComponent(0, 0))
+        harborBackground.components.add(new TransformComponent(0, 0));
         
         this.ecs.entities.add(
             harborBackground, 
@@ -64,7 +71,8 @@ export default class HarborScene extends AdventureScene {
             lady,
             champ, 
             mermaid, 
-            suspiciousPirate
+            suspiciousPirate,
+            fish
         );
     }
 }

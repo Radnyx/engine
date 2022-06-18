@@ -1,11 +1,13 @@
-import GameObject, { Prefab } from "../../../src/GameObject";
+import GameObject, { compose, Prefab } from "../../../src/GameObject";
 import FSMGraph from "../FSMGraph";
 import { Item } from "../Item";
-import { Condition, Dialogue, Do, Select } from "../States";
+import { Condition, Dialogue, Do, Select } from "../Nodes";
 import * as text from "../../build/assets/text.json";
 import AdventureScene from "../scene/AdventureScene";
 import NPCPrefab from "./NPCPrefab";
-import { SuspiciousPirateComponent } from "../component/Components";
+import { SuspiciousPirateComponent, WalkToComponent } from "../component/Components";
+import CharacterPrefab from "./CharacterPrefab";
+import CatPrefab from "./CatPrefab";
 
 enum NODES {
     CHOOSE_PATH = 0,
@@ -65,7 +67,12 @@ export default function SuspiciousPiratePrefab(scene: AdventureScene): Prefab {
                 () => pirateComponent.state.asked[2] = true),
             Dialogue(NODES.END_QUESTIONS, scene, pirate, t["end_questions"], NODES.SHOW_CAT),
             Do(NODES.SHOW_CAT, () => {
-                // TODO
+                const cat = compose(
+                    CharacterPrefab(scene, 832, 162, 35, 35, 0xFF8000),
+                    CatPrefab(scene)
+                )(new GameObject());
+                cat.components.get(WalkToComponent).walkTo(800, 276, 2);
+                scene.ecs.entities.add(cat);
             }, NODES.CAT),
             Dialogue(NODES.CAT, scene, pirate, t["cat"], NODES.END),
             Dialogue(NODES.AFTER, scene, pirate, t["after"], NODES.END),

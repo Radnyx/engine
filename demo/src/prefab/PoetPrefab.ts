@@ -2,7 +2,7 @@ import GameObject, { Prefab } from "../../../src/GameObject";
 import FSMGraph from "../FSMGraph";
 import NPCPrefab from "./NPCPrefab";
 import * as text from "../../build/assets/text.json";
-import { Dialogue, Select, Do, Condition } from "../States";
+import { Dialogue, Select, Do, Condition } from "../Nodes";
 import { Item } from "../Item";
 import AdventureScene from "../scene/AdventureScene";
 

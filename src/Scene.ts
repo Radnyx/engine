@@ -30,7 +30,6 @@ export default abstract class Scene {
 
     async onLoad(game: Game) {
         await new Promise(resolve => this.loader.load(resolve));
-        console.log(this.loader.resources);
         game.app.stage.addChild(this.stage);
     }
 

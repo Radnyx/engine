@@ -21,7 +21,7 @@ export default class AdventureScene extends Scene {
                 y: e.data.global.y,
             })
         ));
-        console.log(this.stage.width);
+        
         this.physics.gravity.y = 0;
 
         this.ecs.systems.add(

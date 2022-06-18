@@ -1,6 +1,6 @@
 import { AbstractEntitySystem } from "@trixt0r/ecs";
 import Matter from "matter-js";
-import { GameObject, PhysicsComponent, Scene } from "../../../src";
+import { GameObject, PhysicsComponent } from "../../../src";
 import { WalkToComponent } from "../component/Components";
 
 export default class WalkToSystem extends AbstractEntitySystem<GameObject> {
