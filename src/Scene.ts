@@ -1,7 +1,7 @@
 import * as ECS from "@trixt0r/ecs";
 import * as Matter from "matter-js";
 import Game from "Game";
-import { Container } from "pixi.js";
+import { Container, Loader } from "pixi.js";
 import { EventBus } from "ts-bus";
 
 export default abstract class Scene {
@@ -9,13 +9,18 @@ export default abstract class Scene {
     public readonly physics: Matter.Engine;
     public readonly stage: Container;
     public readonly bus: EventBus;
+    protected readonly loader: Loader;
 
-    constructor() {
+    constructor(assets: string[]) {
         this.ecs = new ECS.Engine();
         this.physics = Matter.Engine.create();
         this.stage = new Container();
         this.stage.sortableChildren = true;
         this.bus = new EventBus();
+        this.loader = new Loader();
+        for (const asset of assets) {
+            this.loader.add(asset);
+        }
     }
 
     update(delta: number) {
@@ -23,7 +28,9 @@ export default abstract class Scene {
         this.ecs.run(delta);
     }
 
-    onLoad(game: Game) {
+    async onLoad(game: Game) {
+        await new Promise(resolve => this.loader.load(resolve));
+        console.log(this.loader.resources);
         game.app.stage.addChild(this.stage);
     }
 

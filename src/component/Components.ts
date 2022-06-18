@@ -1,5 +1,5 @@
 import { Component } from "@trixt0r/ecs";
-import { Container, Sprite, Text } from "pixi.js";
+import { Container, Rectangle, Sprite, Text } from "pixi.js";
 import { Body } from "matter-js";
 
 class TransformComponent implements Component {
@@ -23,8 +23,12 @@ class StageComponent implements Component {
     constructor(public stage: Container) {}
 }
 
+interface SpriteOptions {
+    keepWithin: Rectangle;
+}
+
 class SpriteComponent implements Component {
-    constructor(public sprite: Sprite) {}
+    constructor(public sprite: Sprite, public options: Partial<SpriteOptions> = {}) {}
 }
 
 class PhysicsComponent implements Component {

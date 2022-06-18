@@ -18,25 +18,42 @@ class WalkToComponent implements Component {
     }
 }
 
+interface GameState {
+    metPoet: boolean;
+    gotLetter: boolean;
+    metMermaid: boolean;
+    gotNet: boolean;
+    metPirate: boolean;
+}
+
 class PlayerComponent implements Component {
     constructor(
         public controllable: boolean = true, 
+        public gameState: Partial<GameState> = {},
         // TODO: move this to PlayerInventory object that persists between scenes?
         // or, Game has overall state attached to it
         private _currentItem: number = 0,
         private _items: Item[] = [ Item.NOTHING ]
     ) {}
 
+    itemName(): string {
+        return ITEM_NAMES[this._items[this._currentItem]];
+    }
+
     giveItem(item: Item) {
         console.log("received " + ITEM_NAMES[item]);
         this._items.push(item);
         this._currentItem = this._items.length - 1;
     }
+
+    holding(item: Item): boolean {
+        return this._items[this._currentItem] == item;
+    }
 }
 
 class FSMComponent implements Component {
     constructor(
-        private _graph: FSMGraph = null, 
+        private _graph: FSMGraph | undefined = undefined, 
         private _node: number = FSMGraph.NULL_NODE,
         private _exit: ((() => void) | void) = undefined
     ) {}
@@ -64,4 +81,14 @@ class FSMComponent implements Component {
     }
 }
 
-export { WalkToComponent, PlayerComponent, FSMComponent };
+interface SuspiciousPirateState {
+    asked: [boolean, boolean, boolean];
+}
+
+class SuspiciousPirateComponent {
+    constructor(public state: SuspiciousPirateState = {
+        asked: [false, false, false]
+    }) {}
+}
+
+export { WalkToComponent, PlayerComponent, FSMComponent, SuspiciousPirateComponent };

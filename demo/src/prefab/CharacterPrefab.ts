@@ -7,7 +7,8 @@ import { WalkToComponent } from "../component/Components";
 export default function CharacterPrefab(
     scene: Scene,
     x: number, y: number, 
-    width: number, height: number
+    width: number, height: number,
+    tint: number = 0xFFFFFF
 ): Prefab {
     return (obj: GameObject) => {
         const spr = Sprite.from(Texture.WHITE);
@@ -15,6 +16,7 @@ export default function CharacterPrefab(
         spr.width = width;
         spr.height = height;
         spr.interactive = true;
+        spr.tint = tint;
         obj.components.add(...[
             new TransformComponent(),
             new SpriteComponent(spr),

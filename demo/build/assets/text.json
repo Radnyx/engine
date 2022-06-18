@@ -1,0 +1,192 @@
+{
+    "poet": {
+        "intro": [
+             "O, to be a spring bee buzzing upon the petals of my lady’s flower...",
+             "What do you think--excuse me--what think’st thou?"
+        ],
+        "opinion": [
+            "It brought a salty tear to my eye!",
+            "It’s very... graphic.",
+            "Aren’t worker bees female?"
+        ],
+        "instruct": [
+            "Well, thou don’t seem so inclined to literature.",
+            "Maybe I can ask a simpler favor:",
+            "Today an illustrious woman in a red dress will sashay into town.",
+            "You must--excuse me--thou must deliver her this rose."
+        ],
+        "given_rose": [
+            "This task seems too elevated for me.",
+            "You should deliver it yourself.",
+            "You memorized her daily routine?"
+        ],
+        "goodbye": "I await my lady’s word! Go on, for my gratitude!",
+        "repeat_instruct": [
+            "Are your--excuse me--are thy ears plugged with seaweed?",
+            "My lovely dame wears a red dress.",
+            "Deliver the rose or face a bombardment of sly insults!"
+        ]
+    },
+    "lady": {
+        "intro_no_rose": "Good day. Are you lost? The pub is over that way.",
+        "delivered_rose": [
+            "A rose? How inventive!",
+            "Please, do tell me. Which thoughtful person sent me a rose?"
+        ],
+        "select_sender": [
+            "The wordy lad.",
+            "It was I, ma’am."
+        ],
+        "was_poet": [
+            "Of course it was that incessant dip.",
+            "Does it surprise you that I never asked for his attention?",
+            "Next time you see him, would you give him back this letter he sent me?"
+        ],
+        "end_was_poet": [
+            "Frankly, I have little faith this will do anything.",
+            "His immense vocabulary lacks the word “no”."
+        ],
+        "was_i": [
+            "Oh! Another... admirer.",
+            "Listen, you are very kind... but this simply isn’t my sort of thing.",
+            "Here, this must’ve been yours."
+        ],
+        "end_was_i": [
+            "Hey, don’t look so blue. There are plenty of fish in the sea!",
+            "Maybe cast a bigger net."
+        ],
+        "after_got_letter": "Yes?",
+        "select_chat": [
+            "Maybe the dress is giving you unwanted attention.",
+            "Nevermind."
+        ],
+        "dress_modestly": [
+            "Obviously.",
+            "Isn’t it funny that I have to be the one to change?"
+        ],
+        "nevermind": "Am I that intimidating?"
+    },
+    "champion": {
+        "intro": "Ho! Pardon fisher, what business have you with the Rock Paper Scissors world champion?",
+        "select_intro": [
+            "How do I play?",
+            "How did you become champion?",
+            "Let's play (with {item})!",
+            "Bye for now."
+        ],
+        "how_to_play": [
+            "The rules are simple enough for you to understand.",
+            "FIRST, find yourself any weapon.",
+            "After a count of 3, we both show our weapons.",
+            "THEN, we decide the winner. Ho!"
+        ],
+        "how_champion": [
+            "My rock is definitively the best weapon. It can crush everything, you see.",
+            "I have yet to lose. Ho!"
+        ],
+        "bye": "Later, baiter!",
+        "lost": "Rock wins again. Ho!",
+        "won": [
+            "... Ho! No!",
+            "I--I’ve never lost...",
+            "Give me that paper!"
+        ],
+        "select_won": [
+            "I’ll trade you for that rock.",
+            "Nah. I think I’ll stay champion."
+        ],
+        "trade": [
+            "Ho! This worthless pebble? You can have it.",
+            "Thank you, haha! Ho!"
+        ],
+        "stay_champ": "Please! I’ll do anything! I can’t be seen like this!"
+    },
+    "mermaid": {
+        "intro": [
+            "Eeeeoo! Look nOt at me stranger!",
+            "I mustn’t be seen in sUch an embarrassing state, ooohh~."
+        ],
+        "select_intro": [
+            "What happened?",
+            "Let me help."
+        ],
+        "what_happened": [
+            "Ohhh I was swimming to the harbor.",
+            "To sing a while, lull a few mariners to sleep.",
+            "As we mer-folk do. Ohhh.",
+            "When I got cAught in this wrEtched net!"
+        ],
+        "let_me_help": [
+            "Ohhh~ that’d be mIghty kind, stranger.",
+            "Now yoOuu wait one second...",
+            "YOu’re a fIsherman!"
+        ],
+        "select_fisherman": [
+            "Yes. Is there a problem?",
+            "No. What makes you say that?"
+        ],
+        "yes_fisherman": "You suppose a fish can trust a fisherman?",
+        "select_yes_fisherman": [
+            "Of course, I already ate today.",
+            "I do crabs, no offense. The correct term is actually “crabber”.",
+            "No. You’re going to have to take me on faith for this one."
+        ],
+        "no_fisherman": "The yEllow hat and jacket, your clothes betray your motives!",
+        "select_no_fisherman": [
+            "Oh! This belongs to my cousin. They’re a... veterinarian?",
+            "I’m trying to get more mileage out of my Halloween costume.",
+            "There was an accident with yellow paint... A lot of it. This used to be beige you see."
+        ],
+        "end_intro": "You plan to eat me, ooohh~!",
+        "persist": [
+            "Eeeeeoo! Fine then. You’ve caught me, fisherman.",
+            "Have your wayy..."
+        ],
+        "won": [
+            "Aaa! You’ve untAngled me??",
+            "Perhaps not all fishermen are cruel...",
+            "I’d been trapped in that net for so, so, long, I...",
+            "I was beginning to fancy it."
+        ],
+        "fisherman_response": "...",
+        "keep_net": "YouOou~ may keep the net. I trust you wOn’t catch any of my kind!",
+        "after": [
+            "Don’t you dAre catch any fish with that net!",
+            "Unless theyy... ask?, aaaah."
+        ]
+    },
+    "suspicious_pirate": {
+        "intro": [
+            "Ahoy! Don’t sneak up on me like that ya dog!",
+            "Yeh look awfully suspicious there, what you eye-in’ about fer?"
+        ],
+        "select_intro": [
+            "Are you a pirate?",
+            "What are you doing here?",
+            "Have you heard about a plundering?"
+        ],
+        "are_you_a_pirate": [
+            "A pirate! Quite the accusation there buccaneer!"
+        ],
+        "what_are_you_doing": [
+            "Blimey! I’m just a landlubber mindin’ me own business!"
+        ],
+        "have_you_heard": [
+            "TODO"
+        ],
+        "end_questions": [
+            "Ye ask a lot of questions fer a fisherman!",
+            "Do ye interrogate every fish ye catch too?"
+        ],
+        "cat": [
+            "Oi what a cute little guy!",
+            "Yo ho! C'mere kitty! Don't leave me high and dry!"
+        ],
+        "after": "I don’t fancy the cut of yer jib.",
+        "attack": [
+            "Ye think I don’t have me wits about me?",
+            "TODO"
+        ]
+
+    }
+}

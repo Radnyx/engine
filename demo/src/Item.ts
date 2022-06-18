@@ -1,12 +1,18 @@
 
 enum Item {
     NOTHING,
-    ROSE
+    ROSE,
+    LETTER,
+    NET,
+    ROCK
 }
 
 const ITEM_NAMES = [
     "",
-    "Rose"
+    "Rose",
+    "Letter",
+    "Net",
+    "Rock"
 ];
 
 export { Item, ITEM_NAMES };

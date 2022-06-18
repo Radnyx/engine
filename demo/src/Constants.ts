@@ -1,0 +1,8 @@
+
+const DISPLAY_WIDTH = 1024;
+const DISPLAY_HEIGHT = 567;
+
+export {
+    DISPLAY_WIDTH,
+    DISPLAY_HEIGHT
+}
